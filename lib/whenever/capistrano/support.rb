@@ -42,7 +42,7 @@ module Whenever
           whenever_server_roles.each do |server, roles|
             roles_arg = roles.empty? ? "" : " --roles #{roles.join(',')}"
 
-            command = "cd #{args[:path]} && #{args[:command]} #{args[:flags]}#{roles_arg}"
+            command = "cd #{args[:path]} && bundle exec #{args[:command]} #{args[:flags]}#{roles_arg}"
             run command, whenever_options.merge(:hosts => server)
           end
         end
